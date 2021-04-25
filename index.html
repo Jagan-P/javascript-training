@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <title>
+            Javascript concepts
+        </title>
+    </head>
+    <body style="padding-bottom: 1000px">
+        <!-- <input onkeyup="
+            document.getElementById('demo').innerText=this.value
+            "  type="text"/> -->
+        <input type="text" id="inputbox"/>
+
+        <p id="demo"></p>
+
+
+        <div style="padding: 20px; background-color: lightblue" id="div">
+            <button id="button">Click me to print a message</button>
+        </div>
+
+        <img id="image" src="https://wonderfulengineering.com/wp-content/uploads/2014/10/wallpaper-photos-31-800x450.jpg">
+
+
+        <script>
+            window.addEventListener("load",function() {
+                console.log("with onload",document.getElementById("image").offsetHeight);
+            })
+
+            window.addEventListener("scroll",function() {
+                console.log("window is scrolled");
+            })
+
+            console.log("without onload",document.getElementById("image").offsetHeight);
+
+            document.getElementById("button").addEventListener("click", clickFunction);
+
+            function clickFunction(event){
+                event.stopPropagation();
+                console.log("button is clicked", event);
+            }
+
+            document.getElementById("button").addEventListener("mouseover", function(event){
+                event.stopPropagation();
+                console.log("button is hovered", event);
+            });
+
+            const jaganEvent = new Event('jagan');
+
+            document.getElementById("button").addEventListener("jagan",function() {
+                console.log("jagan event is dispatched or jagan event occured");
+            });
+            document.getElementById("button").addEventListener("jagan",function() {
+                console.log("jagan1 event is dispatched or jagan1 event occured");
+            });
+
+            document.getElementById("button").dispatchEvent(jaganEvent);
+            document.getElementById("button").dispatchEvent(jaganEvent);
+        </script>
+    </body>
+</html>
