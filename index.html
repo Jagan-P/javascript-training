@@ -57,6 +57,15 @@
 
             document.getElementById("button").dispatchEvent(jaganEvent);
             document.getElementById("button").dispatchEvent(jaganEvent);
+
+            // event bubbling and stopping the bubbling or propagation
+            document.getElementById("div").addEventListener("click", function(){
+                console.log("div is clicked");
+            });
+            document.getElementById("button").addEventListener("click", function(event){
+                event.stopPropagation();
+                console.log("button is clicked", event);
+            });
         </script>
     </body>
 </html>
