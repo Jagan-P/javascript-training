@@ -1,0 +1,10 @@
+I have an array like this,
+
+["Apple", "Banana", "Cat", "Dog", "Elephant"];
+
+
+1. Add a prompt and get the element to be searched
+2. Iterate through the loop
+3. Find the index of the element in array
+4. Alert the element's index.
+Try to use function in this task

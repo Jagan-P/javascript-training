@@ -1,0 +1,71 @@
+<html>
+
+<head>
+    <title>
+        Alert, prompts and confirm
+    </title>
+</head>
+
+<body>
+    <script>
+        // console.log("Before alert");
+        /* Alert */
+        // alert("This is a message");
+
+        /* Confirm */
+        // let confirmDelete = confirm("Are you sure you want to delete?");
+        // console.log(confirmDelete);
+        // if (confirmDelete == true) {
+        //     console.log("Deleting the item");
+        // }
+        // else {
+        //     console.log("The item will not be deleted");
+        // }
+
+        /* Prompt */
+        // var person = prompt("Please enter your name", "");
+        // console.log(person);
+        // if (person != null && person.length>0) {
+        //     console.log(person);
+        // }
+        // else {
+        //     console.log("The name is empty");
+        // }
+
+        // console.log("After alert");
+
+        /* Functions */
+        // function functionName(a, b) {
+        //     let c = a+b;
+        //     console.log("Addition of two number", c);
+        //     return c;
+        // }
+
+        // let result = functionName(10, 20);
+        // console.log("Result outside function", result);
+        // functionName();
+        // functionName();
+
+        /* Task 01-05-2021 */
+        let array = ["Apple", "Banana", "Cat", "Dog", "Elephant"];
+
+        let elementToFind = prompt("Please enter element to find", "");
+        // console.log(elementToFind);
+
+
+        console.log(elementToFind, " is found in the array position ", returnIndex(elementToFind));
+
+        function returnIndex(elementToFind) {
+
+            for (let i = 0; i < array.length; i++) {
+                // console.log(array[i]);
+                if (elementToFind == array[i]) {
+                    // console.log(i);
+                    return i;
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
