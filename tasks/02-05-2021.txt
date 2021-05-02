@@ -1,0 +1,9 @@
+Add a form with following,
+- First name - text
+- Last name - text
+- Mobile number - text
+- Gender - Choose only one from available options
+- Interests - Provide a list and the user can check the required ones
+- State - List of States (4 is enough)
+- Districts - First it should be disabled. Should be enabled only when state is chosen. Based on the state choosen district should be populated (4 district is enough)
+- Submit button
