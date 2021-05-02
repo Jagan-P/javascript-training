@@ -1,0 +1,86 @@
+<html>
+
+<head>
+    <title>Forms
+    </title>
+</head>
+
+<body>
+    <form action="data.php">
+        <label for="fname">First name:</label><br>
+        <input type="text" placeholder="Type your first name" id="fname" name="fname" required maxlength="10"
+            autocomplete="on"><br>
+        <label for="number">Number:</label><br>
+        <input type="number" id="number" name="number" maxlength="10" minlength="10">
+
+
+        <label for="cars">Choose a car:</label>
+        <select id="cars" name="cars" onchange="carValueChanged()">
+            <option value="0">Volvo</option>
+            <option selected value="1">Saab</option>
+            <option value="2">Fiat</option>
+            <option value="3">Audi</option>
+        </select><br>
+
+
+        <input type="radio" id="male" name="gender" value="male" onchange="radioChange()">
+        <label for="male">Male</label><br>
+        <input type="radio" checked id="female" name="gender" value="female" onchange="radioChange()">
+        <label for="female">Female</label><br>
+        <input type="radio" id="cross" name="gender" value="cross" onchange="radioChange()">
+        <label for="cross">Cross</label><br>
+
+        <input type="checkbox" checked id="male-check" name="gender-check" value="male-check">
+        <label for="male-check">male-check</label><br>
+        <input type="checkbox" checked id="female-check" name="gender-check" value="female-check">
+        <label for="female-check">Female-check</label><br>
+        <input type="checkbox" id="cross-check" name="gender-check" value="cross-check">
+        <label for="cross-check">Cross</label><br>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        console.log(document.getElementById("cars").value);
+
+        let checkboxes = document.getElementsByName("gender-check");
+        let radiobuttons = document.getElementsByName("gender");
+        for (let i = 0; i < checkboxes.length; i++) {
+            if (checkboxes[i].checked == true) {
+                console.log(checkboxes[i].id, " is choosen");
+            }
+            else {
+                console.log(checkboxes[i].id, " is not choosen");
+            }
+        }
+
+        setTimeout(() => {
+            document.getElementById("cars").value = "0";
+
+            checkboxes[2].checked = true;
+
+            radiobuttons[0].checked = true;
+        }, 1000);
+
+        function radioChange() {
+            for (let i = 0; i < radiobuttons.length; i++) {
+                if (radiobuttons[i].checked == true) {
+                    console.log(radiobuttons[i].id, " is choosen");
+                }
+                else {
+                    console.log(radiobuttons[i].id, " is not choosen");
+                }
+            }
+        }
+
+        function carValueChanged() {
+            console.log(document.getElementById("cars").value);
+        }
+
+        /* toString() function */
+        let a = 123;
+        console.log(a.toString().length)
+    </script>
+</body>
+
+</html>
