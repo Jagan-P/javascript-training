@@ -1,0 +1,60 @@
+<html>
+    <head>
+        <title>DOM and DOM traversal</title>
+        <style>
+            li {
+                list-style-type: none;
+                padding: 10px;
+                width: 200px;
+                border: 1px solid lightgray;
+            }
+
+            li:nth-child(2n) {
+                background-color: lightgray;
+            }
+            
+            ul {
+                display: inline-block;
+            }
+        </style>
+    </head>
+    <body>
+        <ul>
+            <li>First</li>
+            <li>Second</li>
+            <li>Red</li>
+            <li>Third</li>
+        </ul>
+        <ul>
+            <li>Fourth</li>
+            <li>Fifth</li>
+            <li>Sixth</li>
+            <li>Seventh</li>
+        </ul>
+        <ul>
+            <li>Eight</li>
+            <li>Nine</li>
+            <li>Red</li>
+            <li>Ten</li>
+        </ul>
+
+        <button onclick="deleteListWithRed()">Delete lists with red item</button>
+        
+        <script>
+            function deleteListWithRed() {
+                let listItems = document.getElementsByTagName("li");
+                for(let i=0; i<listItems.length; i++) {
+                    if(listItems[i].innerText=="Red") {
+                        console.log(listItems[i].parentElement)
+
+                        // will remove the entire ul
+                        // listItems[i].parentElement.parentElement.removeChild(listItems[i].parentElement);
+
+                        // this will remove only list item
+                        listItems[i].parentElement.removeChild(listItems[i]);
+                    }
+                }
+            }
+        </script>
+    </body>
+</html>

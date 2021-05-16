@@ -6,7 +6,7 @@
 </head>
 
 <body>
-    <form action="data.php">
+    <form action="https://jsonplaceholder.typicode.com/posts" method="POST">
         <label for="fname">First name:</label><br>
         <input type="text" placeholder="Type your first name" id="fname" name="fname" required maxlength="10"
             autocomplete="on"><br>
@@ -80,6 +80,17 @@
         /* toString() function */
         let a = 123;
         console.log(a.toString().length)
+    </script>
+
+    <script>
+        // set a cookie
+        // document.cookie = "username=John Doe";
+
+        // retrieve all cookies
+        // console.log(document.cookie);
+
+        // set a cookie with expiry time in UTC
+        // document.cookie = "username=John Doe; expires=Sun, 16 May 2021 08:56:00 UTC";
     </script>
 </body>
 
