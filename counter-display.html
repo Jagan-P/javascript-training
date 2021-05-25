@@ -1,0 +1,78 @@
+<html>
+
+<head>
+    <title>Counter display</title>
+
+    <style>
+        .countdown {
+            border: 1px solid lightgray;
+            background-color: lightskyblue;
+            display: inline-block;
+            margin: 50px;
+        }
+
+        .hours, .minutes, .seconds {
+            padding: 20px;
+            border: 1px solid gray;
+            background-color: lightskyblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="countdown">
+        <span id="hours" class="hours">
+
+        </span>
+        <span id="minutes" class="minutes">
+
+        </span>
+        <span id="seconds" class="seconds">
+
+        </span>
+    </div>
+
+    <button id="claim-button" disabled>Claim offer</button>
+
+    <script>
+        let seconds = 10;
+        let hours = 0;
+        let minutes = 1;
+        let decrementSeconds = true;
+
+        setInterval(()=>{
+            if(decrementSeconds) {
+                seconds--;
+            }
+
+            if(seconds<=0 && (hours>0 || minutes >0)) {
+                seconds = 59;
+            }
+            if(seconds==59) {
+                minutes--;
+            }
+
+            if(minutes<0) {
+                minutes=0;
+            }
+
+            if(minutes==0) {
+                hours--;
+            }
+
+            if(hours<0) {
+                hours=0;
+            }
+
+            if(hours==0 && minutes ==0 && seconds==0) {
+                decrementSeconds = false;
+                document.getElementById("claim-button").disabled = false;
+            }
+
+            document.getElementById("hours").innerText = hours;
+            document.getElementById("minutes").innerText = minutes;
+            document.getElementById("seconds").innerText = seconds;
+        }, 1000)
+    </script>
+</body>
+</html>
