@@ -1,0 +1,95 @@
+<html>
+    <head>
+        <title>Simple slider with javascript</title>
+        <style>
+            body{
+                margin: 0;
+            }
+            .slider {
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                overflow-x: hidden;
+            }
+            .slider .slide {
+                position: absolute;
+                top: 0;
+                left: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                transition: left 1s ease;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="slider">
+            <div class="slide">
+                <p>Slide 1</p>
+            </div>
+            <div class="slide">
+                <p>Slide 2</p>
+            </div>
+            <div class="slide">
+                <p>Slide 3</p>
+            </div>
+            <div class="slide">
+                <p>Slide 4</p>
+            </div>
+        </div>
+        <button class="previous" onclick="previousSlide()">Previous</button>
+        <button class="next" onclick="nextSlide()">Next</button>
+        <script>
+            let container;
+            let containerWidth;
+            let slidesArray;
+            let highestSlideHeight;
+            window.onload = function() {
+                container = document.querySelector(".slider");
+                containerWidth = container.offsetWidth;
+                slidesArray = document.querySelectorAll(".slider .slide");
+                highestSlideHeight = 0;
+                for(let slideIndex=0; slideIndex<slidesArray.length; slideIndex++) {
+                    slidesArray[slideIndex].style.left = slideIndex*containerWidth;
+                    highestSlideHeight = highestSlideHeight<slidesArray[slideIndex].offsetHeight?slidesArray[slideIndex].offsetHeight:highestSlideHeight;
+                }
+                container.style.height = highestSlideHeight;
+                document.querySelector(".previous").setAttribute("disabled",true);
+            }
+            function nextSlide() {
+                for(let slideIndex=0; slideIndex<slidesArray.length; slideIndex++) {
+                   let currentSlideIndex = parseInt(slidesArray[slideIndex].style.left.replace("px",""))/containerWidth;
+                   let newSlideIndex = currentSlideIndex-1;
+                   slidesArray[slideIndex].style.left = newSlideIndex*containerWidth;
+                    if(newSlideIndex*containerWidth==0 && slideIndex==slidesArray.length-1) {
+                        document.querySelector(".next").setAttribute("disabled",true);
+                    }
+                    else if(slideIndex==slideIndex.length-1) {
+                        document.querySelector(".next").removeAttribute("disabled");
+                    }
+                }
+                document.querySelector(".previous").removeAttribute("disabled");
+            }
+            function previousSlide() {
+                for(let slideIndex=0; slideIndex<slidesArray.length; slideIndex++) {
+                   let currentSlideIndex = parseInt(slidesArray[slideIndex].style.left.replace("px",""))/containerWidth;
+                   let newSlideIndex = currentSlideIndex+1;
+                   slidesArray[slideIndex].style.left = newSlideIndex*containerWidth;
+                   console.log(newSlideIndex*containerWidth, slideIndex)
+                   if(newSlideIndex*containerWidth==0 && slideIndex==0) {
+                       console.log("disabling previous");
+                        document.querySelector(".previous").setAttribute("disabled",true);
+                    }
+                    else if(slideIndex==0) {
+                        console.log("enabling previous");
+                        document.querySelector(".previous").removeAttribute("disabled");
+                    }
+                }
+                document.querySelector(".next").removeAttribute("disabled");
+            }
+        </script>
+    </body>
+</html>

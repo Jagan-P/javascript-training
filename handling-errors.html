@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <title>
+            Handling errors
+        </title>
+    </head>
+    <body>
+        <script>
+            /*
+                // after error will never be printed in console.log due to error
+                console.log(a.name.length);
+                console.log("after error");
+            */
+            // try {
+            //     let a ={};
+            //     console.log(a.name.length);
+            //     console.log("after error");
+            // }
+            // catch (error) {
+            //     console.log(error);
+            //     console.log("second line");
+            // }
+            // console.log("third line");
+            // let a = {name: 'abc'};
+            // if(a.name && a.name.length) {
+            //     console.log(a.name.length);
+            // }
+            // console.log("end of script");
+            try {
+                let a ={};
+                if(a.name && a.name.length) {
+                    console.log(a.name.length);
+                }
+                else {
+                    throw new Error("a doesn't have property length");
+                }
+            }
+            catch (error) {
+                console.log(error);
+            }
+            console.log("end of script");
+        </script>
+    </body>
+</html>

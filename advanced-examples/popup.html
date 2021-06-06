@@ -1,0 +1,77 @@
+<html>
+  <head>
+    <title>Popup/Alert/Modal box</title>
+    <style>
+      body {
+        margin: 0;
+      }
+      .modalbox-wrapper {
+        position: fixed;
+        top: 50%;
+        transform: translateY(-50%);
+        align-items: center;
+        width: 100%;
+        justify-content: center;
+        height: 100%;
+        display: none;
+      }
+      .modalbox-wrapper.open {
+        display: flex;
+      }
+      .modalbox-wrapper.open .modalbox-backdrop {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        background: white;
+        opacity: 0.8;
+        z-index: -1;
+      }
+      .modalbox-wrapper.open .modalbox-content {
+        padding: 20px;
+        border: 1px solid gray;
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0px 1px 3px 0px black;
+      }
+    </style>
+  </head>
+  <body>
+    <p>Some text to fill the page with content so that a popup can be shown</p>
+    <p>Some text to fill the page with content so that a popup can be shown</p>
+    <p>Some text to fill the page with content so that a popup can be shown</p>
+    <p>Some text to fill the page with content so that a popup can be shown</p>
+    <p>Some text to fill the page with content so that a popup can be shown</p>
+    <p>Some text to fill the page with content so that a popup can be shown</p>
+    <p>Some text to fill the page with content so that a popup can be shown</p>
+    <p>Some text to fill the page with content so that a popup can be shown</p>
+    <p>Some text to fill the page with content so that a popup can be shown</p>
+    <p>Some text to fill the page with content so that a popup can be shown</p>
+    <p>Some text to fill the page with content so that a popup can be shown</p>
+    <p>Some text to fill the page with content so that a popup can be shown</p>
+    <p>Some text to fill the page with content so that a popup can be shown</p>
+    <p>Some text to fill the page with content so that a popup can be shown</p>
+
+    <button onclick="openModal()">Show modal/popup/alert</button>
+
+    <div class="modalbox-wrapper">
+      <div class="modalbox-content">
+        <div class="header">Some title of the popup</div>
+        <div class="body">Some text inside the popup</div>
+        <div class="footer">
+          <button onclick="closeModal()">OK</button>
+          <button onclick="closeModal()">Cancel</button>
+        </div>
+      </div>
+      <div class="modalbox-backdrop"></div>
+    </div>
+
+    <script>
+        function openModal() {
+            document.querySelector(".modalbox-wrapper").classList.value = document.querySelector(".modalbox-wrapper").classList.value+" open";
+        }
+        function closeModal() {
+            document.querySelector(".modalbox-wrapper").classList.value = document.querySelector(".modalbox-wrapper").classList.value.replace(" open", "");
+        }
+    </script>
+  </body>
+</html>

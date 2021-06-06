@@ -1,0 +1,95 @@
+<html>
+    <head>
+        <title>
+            Menu
+        </title>
+        <style>
+            ul {
+                padding: 0;
+            }
+            li {
+                list-style-type: none;
+            }
+            ul>li span {
+                padding-right: 10px;
+                padding-left: 10px;
+            }
+            .menu {
+                display: flex;
+                flex-direction: row;
+            }
+            .menu>li {
+                color: white;
+                background-color: blueviolet;
+                margin-left: 5px;
+                margin-right: 5px;
+                height: 22px;
+            }
+            ul li:not(.menu>li) {
+                color: red;
+                visibility: hidden;
+                height: 0;
+                padding-right: 10px;
+                padding-left: 10px;
+            }
+            .menu>li:hover>ul>li{
+                visibility: visible;
+                height: auto;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                border: 1px solid black;
+            }
+            .menu ul {
+                position: relative;
+                top: 3px;
+                background-color: lightgray;
+            }
+        </style>
+    </head>
+    <body>
+        <ul class="menu">
+            <li>
+                <span>Item 1</span>
+                <ul>
+                    <li>
+                        Item 1 Child 1
+                    </li>
+                    <li>
+                        Item 1 Child 2
+                    </li>
+                    <li>
+                        Item 1 Child 3
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <span>Item 2</span>
+                <ul>
+                    <li>
+                        Item 2 Child 1
+                    </li>
+                    <li>
+                        Item 2 Child 2
+                    </li>
+                    <li>
+                        Item 2 Child 3
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <span>Item 3</span>
+                <ul>
+                    <li>
+                        Item 3 Child 1
+                    </li>
+                    <li>
+                        Item 3 Child 2
+                    </li>
+                    <li>
+                        Item 3 Child 3
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </body>
+</html>

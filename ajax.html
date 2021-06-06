@@ -1,0 +1,51 @@
+<!-- 
+    Example xml data
+    <note>
+        <to>Tove</to>
+        <from>Jani</from>
+        <heading>Reminder</heading>
+        <body>Don't forget me this weekend!</body>
+    </note>
+-->
+<!-- 
+    JSON format of same data  
+    [
+        {
+            "to": "Tove",
+            "from": "Jani",
+            "heading": "Reminder",
+            "body": "Don't forget me this weekend!"
+        }
+    ] 
+-->
+
+<html>
+  <head>
+    <title>Ajax</title>
+  </head>
+  <body>
+      <button onclick="loadDoc()">Get data from server</button>
+      <ul id="list">
+
+      </ul>
+    <script>
+      function loadDoc() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+          if (this.readyState == 4 && this.status == 200) {
+              console.log(typeof this.responseText);
+              let parsedData = JSON.parse(this.responseText);
+              let li='';
+              for(let data of parsedData) {
+                  li+="<li>"+data.title+'</li>'
+              }
+              document.getElementById("list").insertAdjacentHTML( 'beforeend', li);
+          }
+        };
+        xhttp.open("GET", "https://jsonplaceholder.typicode.com/posts", true);
+        xhttp.send();
+      }
+    //   loadDoc();
+    </script>
+  </body>
+</html>
